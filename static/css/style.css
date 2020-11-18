@@ -17,9 +17,18 @@
     
 }
 
+
 .h1, h1 {
     font-size: 2.5rem;
     color: rgb(5 12 10);
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.flashes h4 {
+    line-height: 2;
 }
 
 .btn, .btn-large, .btn-small {
@@ -28,16 +37,12 @@
     background-color: #6c757d;
   }
 
-.row{
-    align-items: center;
-}
-
   @media (min-width: 768px) {
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
     }
     .jumbotron {
-    padding: 10rem 5rem;
+    padding: 30rem 20rem;
     }
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
   }
