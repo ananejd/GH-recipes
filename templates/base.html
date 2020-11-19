@@ -44,21 +44,29 @@
                 >Recipe <span class="sr-only"></span
               ></a>
             </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">
-                Profile<span class="sr-only"></span
-              ></a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="{{ url_for('signup') }}">
-                signup <span class="sr-only"></span
-              ></a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link" href="{{ url_for('login') }}">
-                Log In <span class="sr-only"></span
-              ></a>
-            </li>
+            {% if session.user %}
+                <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">
+                    Profile<span class="sr-only"></span
+                ></a>
+                </li>
+                <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('logout') }}">
+                    Log Out <span class="sr-only"></span
+                ></a>
+                </li>
+            {% else %}
+                <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('login') }}">
+                    Log In <span class="sr-only"></span
+                ></a>
+                </li>
+                <li class="nav-item ">
+                <a class="nav-link" href="{{ url_for('signup') }}">
+                    Signup <span class="sr-only"></span
+                ></a>
+                </li>
+            {% endif %}
           </ul>
         </div>
       </nav>
