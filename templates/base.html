@@ -29,52 +29,74 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('home') }}">GH-RECIPES</a>
+      <!-- navigation -->
 
+      <nav class="navbar navbar-expand-lg navbar-light bg-light #cfd8dc blue-grey lighten-4">
+        <a class="navbar-brand" href="{{ url_for('home') }}">GH-RECIPES</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="{{ url_for('home') }}"
                 >Home <span class="sr-only">(current)</span></a
               >
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
               <a class="nav-link" href="{{ url_for('get_dish') }}"
                 >Recipe <span class="sr-only"></span
               ></a>
             </li>
             {% if session.user %}
-                <li class="nav-item ">
-                <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">
-                    Profile<span class="sr-only"></span
-                ></a>
-                </li>
-                <li class="nav-item ">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{{ url_for('profile', username=session['user']) }}"
+              >
+                Profile<span class="sr-only"></span
+              ></a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{{ url_for('add_recipe') }}"
                 >Add Recipe <span class="sr-only"></span
               ></a>
             </li>
-                <li class="nav-item ">
-                <a class="nav-link" href="{{ url_for('logout') }}">
-                    Log Out <span class="sr-only"></span
-                ></a>
-                </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('logout') }}">
+                Log Out <span class="sr-only"></span
+              ></a>
+            </li>
             {% else %}
-                <li class="nav-item ">
-                <a class="nav-link" href="{{ url_for('login') }}">
-                    Log In <span class="sr-only"></span
-                ></a>
-                </li>
-                <li class="nav-item ">
-                <a class="nav-link" href="{{ url_for('signup') }}">
-                    Signup <span class="sr-only"></span
-                ></a>
-                </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('login') }}">
+                Log In <span class="sr-only"></span
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('signup') }}">
+                Signup <span class="sr-only"></span
+              ></a>
+            </li>
             {% endif %}
           </ul>
         </div>
       </nav>
+      <!-- mobile sidenav -->
+      <ul class="sidenav light-blue-text text-darken 4" id="mobile-demo">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        {% if session.user %}
+        <li><a href="{{ url_for('get_dish') }}">Recipe</a></li>
+        <li>
+          <a href="{{ url_for('profile', username=session['user']) }}"
+            >Profile</a
+          >
+        </li>
+
+        <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
+        {% else %}
+        <li><a href="{{ url_for('logout') }}">Log out</a></li>
+        <li><a href="{{ url_for('signup') }}">sign up</a></li>
+        {% endif %}
+      </ul>
 
       {% block content %} {% endblock %}
     </header>
@@ -107,4 +129,5 @@
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"
   ></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </html>

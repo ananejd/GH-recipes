@@ -3,7 +3,7 @@
 <h3 class="#e1f5fe light-blue lighten-5 center-align">Add Recipe</h3>
 
 <div class="row">
-  <form class="col-lg-6 offset-lg-3" method="POST" action="">
+  <form class="col-lg-6 offset-lg-3" method="POST" action="{{ url_for('add_recipe') }}">
     <div class="row card-panel grey lighten-5">
       <div class="input-field col s12">
         <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
@@ -19,6 +19,7 @@
         <label for="recipe_name">Recipe Name</label>
       </div>
     </div>
+    <!-- Recipe description -->
     <div class="row card-panel grey lighten-5">
       <div class="input-field col s12">
         <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
@@ -33,6 +34,13 @@
         <label for="recipe_description">Recipe Description</label>
       </div>
     </div>
+    <!-- submit button -->
+    <div class="row">
+        <div class="col s12 center-align">
+            <button type="submit" class="btn-large  #e1f5fe light-blue lighten-5 text-shadow">
+                Add Recipe <i class="fas fa-plus-square right"></i>
+            </button>
+        </div>
     </div>
   </form>
 </div>

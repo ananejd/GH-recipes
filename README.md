@@ -1,45 +1,190 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# GH_Recipes
 
-Welcome ananejd,
+The project is a database-driven online collection of Ghanaian Dishes. The project utilises Flask to
+create the application, using MongoDB as a data store, with a back-end functionality written in python.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+The project seeks to adopt the CRUD functionality in its setup, allowing a user to create, read,
+update and delete recipes.
 
-## Gitpod Reminders
+## UX Design
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+My design was inspired by [the site builder report website](https://www.sitebuilderreport.com/inspiration/food-websites), 
+which is basically a collection of website design. The intension for the design is to capture a first time users attention to the page 
+by greeting the eyes with good looking food and for people who do not know anything about Ghana, this is perhaps a good way to present 
+Ghana to your eyes by way of imagery as found on the home page. Users have the option of digging into the images that 
+capture their attention by clicking to read recipe descripstions. the design also invites people with knowledege about 
+Ghanaian foods to to sign up and add up to the collections on the site. 
+----------------------------------------------------------------------------------
+The homepage allows a user to hover over an image to find out more information
+about the recipe before clicking and finding ingredients/preparation
+instructions.
 
-`python3 -m http.server`
+Within the recipe's information page the page is structured with defined
+sections. A shopping list style for the list of ingredients and a large section
+for the instructions.
 
-A blue button should appear to click: *Make Public*,
+In terms of adding a recipe the form is clear. It allows a user to add/ remove
+ingredients and preparation steps with the use of a simple button (JavaScript).
+The form makes use of WTForms for validation and security which provides good
+feedback to the user.
 
-Another blue button should appear to click: *Open Browser*.
+The Filter modal offers a user the ability to narrow down the recipes on the 
+website dependent on the user's requirements. I chose a modal to reduce the 
+clutter within the navigation bar, trying to keep the design as minimalist
+as possible. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+To return to the home-page a user simply clicks the Logo (a common convention),
+I also added a home button alongside the logo to make this clearer.
 
-A blue button should appear to click: *Make Public*,
+## Features
 
-Another blue button should appear to click: *Open Browser*.
+#### Add Recipe
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+A user is able to fill out a form and add a recipe to the database and therefore
+the site using MongoDBs insert-one() function.
 
-## Updates Since The Instructional Video
+The upvotes section is not seen on the form, a JavaScript function is used to
+produce a number between 0-10000 and applied to the recipe. This is to show how
+the functionality would work with a live website.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#### Edit Recipe
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+A user is able to make edits to recipes found on the website. MongoDB allocates
+each entry into a collection with an object ID and this is what is used to 
+locate the individual recipe the user wants to edit and pre-fill the form
+for the user. After the user has made the necessary changes they submit the form
+and MongoDB's update() method to update the recipe.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+#### Find Recipe
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+Once a user selects a recipe from the home-page the MongoDB find() method uses
+the object ID to find the requested recipe. The user is then taken through 
+to the recipe's page where information from the database is presented in a 
+readable format to the user.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+#### Delete Recipe
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+Each recipe has a 'Delete Recipe' button found at the bottom of the page. Once
+clicked it uses the remove() mongoDB method.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+#### Manage Cuisines
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Each recipe has a cuisine, and the user is able to add, edit or delete cuisines
+found on the website. This is an entirely different collection that has a
+relationship with the recipes collection.
 
---------
+#### Filter Recipes
 
-Happy coding!
+This functionality allows a user to narrow down the recipes and tailor the
+filter to their personal preferences. The user is able to filter by cuisine,
+time to cook, cooking difficulty or sort the recipes by upvotes. This feature
+queries the database for each different parameter and returns a list only
+including the requested parameter. The sort by number of upvotes uses the 
+sort() method to sort by the upvotes field.
+
+## Technologies Used
+
+- Python 3.4.3
+- Flask (Python Microframework)
+- BootStrap 3
+- Google Fonts
+- JavaScript
+- CSS
+- HTML
+- WTForms
+- Materialize
+
+## Testing
+
+#### Testing Add Recipe Form
+
+- Test that a new added recipe immediately appears on the website's homepage
+- Go to form and try to submit empty fields and make sure WTForms 
+InputRequired() is working
+- Try to submit an empty ingredients list and make sure in-line validation is
+working
+- Try to submit a value in the Image URL field that is not a valid URL to make
+sure the custom JavaScript validator is working
+- Ensure that the random number JS function for upvotes is being created when 
+adding new recipe.
+- Ensure the adding of new ingredients and steps rows through JavaScript is
+working and that they are creating the correct names within the documents 
+in MongoDB.
+- Making sure that the select fields are being populated with all of the 
+correct choices
+- Ensure that the removal of newly created rows for ingredients/preparation
+steps is possible and make sure that all of the rows are unable to be deleted
+with feedback for user if they try.
+
+#### Testing Edit Recipe Form
+
+- Make sure that the form is being populated with the correct data from the
+MongoDB document when editing recipe.
+- Ensure that adding/removing ingredient/preparation step rows is not causing
+an issue with clashing names when submitted
+- Ensure a recipe is able to be updated more than once without any bugs
+occuring (such as fields going missing or name clashes causing issues)
+- Test that the select fields are producing the correct options.
+
+#### Other Tests
+
+- Make sure the 'delete recipe' functionality is removing the correct document.
+- Ensure that newly added cuisines become available on the add recipe form.
+- Make sure removing a cuisine that recipes have as their cuisine doesn't cause
+the website to crash.
+- Test responsiveness of each page on different screen sizes and ensure all
+elements stay readable.
+
+## Database Schema
+
+The database is structured with two collections, recipes and cuisines. The two
+collections are related as recipes contains a 'cuisine name' key that
+corresponds the cuisine documents.
+
+The recipes document itself contains unstuctured data. With key/value pairs
+that make up a description of the recipe. The ingredient name, quantity and
+value all have the same number within the key, and they are grouped through the
+use of sorting by number and sliced for data representation.
+
+An example of a recipe document can be found in static/images/doc_example.png
+
+
+## Deployment
+
+To Clone the project from github:
+
+```python
+$ git clone https://github.com/jstokes1994/online-cookbook.git
+```
+
+I recommend deploying the project in a virtual envioronment:
+
+```python
+$ cd directory-name
+$ python3 -m venv virtual-env-name
+```
+
+You will need to install the dependencies found in the requirements.txt file:
+
+```python
+$ pip3 install -r requirements.txt 
+```
+
+To run the project locally use:
+
+```python
+$ python3 run.py
+```
+
+You can also run the app through Heroku.
+
+The project was deployed to Heroku with config vars:
+
+- IP = 0.0.0.0
+- PORT = 5000
+
+https://online-cookbook-js.herokuapp.com/
+
+There are no differences between the development and deployed versions.
+
+Note the project is written with Python3 and not Python2.
