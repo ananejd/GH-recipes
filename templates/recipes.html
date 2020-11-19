@@ -1,13 +1,25 @@
 {% extends "base.html"%}
 {% block content %}
-        
-    {% for dish in dish %}
-    <div>
-        <strong>{{ recipe.recipe_name }}</strong>
-        <p>{{ recipe.recipe_description }} </p>
-        <p><em>by: {{recipe.created_by}} </em></p>
-    </div>
+     <h3 class="#cfd8dc blue-grey lighten-4 center-align">All Recipes</h3>   
+<ul class="collapsible">
+    {% for recipe in recipes %}
+        <li>
+            <div class="collapsible-header white-text #fafafa grey lighten-5 text-shadow">
+                <div class="col s3">
+                    <a href="" class="btn-small green accent-4">Delete</a>
+                    <a href="" class="btn-small light-green lighten-1">Edit</a>
+                </div>
+                <div class="col s9">
+                    <strong>{{ recipe.recipe_name }}</strong> 
+                </div>
+            </div>
+            <div class="collapsible-body">
+                <p>{{ recipe.recipe_description }}</p>
+                <p><em>by: {{recipe.created_by}}</em></p>
+            </div>
+        </li>
     {% endfor %}
+</ul>
 
 {% endblock %}
   

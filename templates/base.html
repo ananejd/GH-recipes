@@ -84,7 +84,7 @@
       <ul class="sidenav light-blue-text text-darken 4" id="mobile-demo">
         <li><a href="{{ url_for('home') }}">Home</a></li>
         {% if session.user %}
-        <li><a href="{{ url_for('get_dish') }}">Recipe</a></li>
+        <li><a href="{{ url_for('recipes') }}">Recipe</a></li>
         <li>
           <a href="{{ url_for('profile', username=session['user']) }}"
             >Profile</a

@@ -25,10 +25,10 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/get_dish")
+@app.route("/recipes")
 def get_dish():
-    dish = mongo.db.dish.find()
-    return render_template("recipes.html", dish=dish)
+    dishes = mongo.db.dish.find()
+    return render_template("recipes.html", recipes=dishes)
 
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -108,12 +108,12 @@ def logout():
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
-        dish = {
+        add_recipe = {
             "recipe_name": request.form.get("dish_name"),
             "recipe_description": request.form.get("recipe_description"),
             "created_by": session["user"]
         }
-        mongo.db.dish.insert_one(dish)
+        mongo.db.dish.insert_one(get_dish)
         flash("Recipe Successfully Added")
         return redirect(url_for("add_recipe"))
 
