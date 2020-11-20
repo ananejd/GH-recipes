@@ -1,0 +1,48 @@
+{% extends "base.html"%} {% block content %}
+
+<h3 class="#e1f5fe light-blue lighten-5 center-align">Edit Recipe</h3>
+
+<div class="row">
+  <form class="col-lg-6 offset-lg-3" method="POST" action="{{ url_for('edit_task', recipe_id=recipe._id) }}">
+    <div class="row card-panel grey lighten-5">
+      <div class="input-field col s12">
+        <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+        <input
+          id="recipe_name"
+          name="recipe_name"
+          minlength="4"
+          maxlength="50"
+          type="text"
+          class="validate"
+          required
+        />
+        <label for="recipe_name">Recipe Name</label>
+      </div>
+    </div>
+    <!-- Recipe description -->
+    <div class="row card-panel grey lighten-5">
+      <div class="input-field col s12">
+        <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+        <textarea
+          id="recipe_description"
+          name="recipe_description"
+          minlength="4"
+          maxlength="200"
+          class="materialize-textarea validate"
+          required
+        ></textarea>
+        <label for="recipe_description">Recipe Description</label>
+      </div>
+    </div>
+    <!-- submit button -->
+    <div class="row">
+        <div class="col s12 center-align">
+            <button type="submit" class="btn-large  #e1f5fe light-blue lighten-5 text-shadow">
+                Edit Recipe <i class="fas fa-edit right"></i>
+            </button>
+        </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

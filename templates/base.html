@@ -83,17 +83,16 @@
       <!-- mobile sidenav -->
       <ul class="sidenav light-blue-text text-darken 4" id="mobile-demo">
         <li><a href="{{ url_for('home') }}">Home</a></li>
-        {% if session.user %}
         <li><a href="{{ url_for('recipes') }}">Recipe</a></li>
+        {% if session.user %}
         <li>
           <a href="{{ url_for('profile', username=session['user']) }}"
-            >Profile</a
-          >
+            >Profile</a>
         </li>
-
         <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
-        {% else %}
         <li><a href="{{ url_for('logout') }}">Log out</a></li>
+        {% else %}
+        <li><a href="{{ url_for('login') }}">Log out</a></li>
         <li><a href="{{ url_for('signup') }}">sign up</a></li>
         {% endif %}
       </ul>
