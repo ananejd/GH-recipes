@@ -62,7 +62,6 @@ clicked it uses the remove() mongoDB method.
 - Python 3.4.3
 - Flask (Python Microframework)
 - BootStrap 3
-- Google Fonts
 - JavaScript
 - CSS
 - HTML

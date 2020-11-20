@@ -113,11 +113,12 @@ def add_recipe():
             "recipe_description": request.form.get("recipe_description"),
             "created_by": session["user"]
         }
-        mongo.db.dish.insert_one(get_dish)
+        mongo.db.dish.insert_one(recipes)
         flash("Recipe Successfully Added")
         return redirect(url_for("add_recipe"))
 
-    return render_template("add_recipe.html")
+    recipe = mongo.db.recipe.find().sort("recipe_name", 1)
+    return render_template("add_recipe.html", recipes=recipe, recipe=recipe)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
