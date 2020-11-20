@@ -8,9 +8,9 @@ update and delete recipes.
 
 ## Demo 
 <hr>
-Find a live version <a href="">here</a>
+Find a live version <a href=""http://ami.responsivedesign.is/?url=https:///gh-recipes.herokuapp.com/"">here</a>
 
-![](assets/images/readme.jpg)
+![](assets/images/RM2.png)
 
 
 ## UX Design
@@ -133,13 +133,8 @@ This project was built using Python 3.8.6 and Flask 1.1.2.
 1. The project was deployed to Heroku with config vars:
 1. created requirements.txt that Heroku knows which packages are required for the application to run and install them.
 1. created Procfile that Heroku knows what kind of application this is.
-Heroku
-Free cloud hosting platform which simplify the deployment process.
+1. project eventually deployed at 
+<a href="https://gh-recipes.herokuapp.com/">here</a>">
 
-
-
-https:
-
-There are no differences between the development and deployed versions.
-
-Note the project is written with Python3 and not Python2.
+#### Challenges 
+Several chanllenges came up in the cause of building this project which are still being addressed.
