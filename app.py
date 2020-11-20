@@ -26,7 +26,7 @@ def home():
 
 
 @app.route("/recipes")
-def get_dish():
+def recipes():
     dishes = mongo.db.dish.find()
     return render_template("recipes.html", recipes=dishes)
 

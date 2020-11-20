@@ -14,27 +14,23 @@ by greeting the eyes with good looking food and for people who do not know anyth
 Ghana to your eyes by way of imagery as found on the home page. Users have the option of digging into the images that 
 capture their attention by clicking to read recipe descripstions. the design also invites people with knowledege about 
 Ghanaian foods to to sign up and add up to the collections on the site. 
-----------------------------------------------------------------------------------
-The homepage allows a user to hover over an image to find out more information
-about the recipe before clicking and finding ingredients/preparation
-instructions.
 
-Within the recipe's information page the page is structured with defined
-sections. A shopping list style for the list of ingredients and a large section
-for the instructions.
+The home page displays the navigation bar with the brand of GH-RECIPES on the left of the page
+and four navigational icons on the right of the page. Immediately below that is a display imge of 
+a ghanaian dish which a welcome inscription to the user. This is followed by a display of recipes in 
+the body and finally a footer displaying the developer involved in the project
 
-In terms of adding a recipe the form is clear. It allows a user to add/ remove
-ingredients and preparation steps with the use of a simple button (JavaScript).
-The form makes use of WTForms for validation and security which provides good
-feedback to the user.
+The recipe page displays a list of recipes for which upon full completion of the project users 
+will be fully able to create, Read, Update and Delete recipes as they wish.
 
-The Filter modal offers a user the ability to narrow down the recipes on the 
-website dependent on the user's requirements. I chose a modal to reduce the 
-clutter within the navigation bar, trying to keep the design as minimalist
-as possible. 
+The Login navigational icon allows regualar users to get back into their profile 
+to fully access their previous activities on the page as well as create new ones.
 
-To return to the home-page a user simply clicks the Logo (a common convention),
-I also added a home button alongside the logo to make this clearer.
+The sign up icon permits new users to establish a profile on the page.
+
+To return to the home-page a user simply clicks the Logo which is a common convention in programming,
+I also added a home button alongside the logo to make this clearer. The back to the top button at 
+the bottom right of the home page allows users to navigate easily by way of a click to the navigation bar.
 
 ## Features
 
@@ -55,32 +51,11 @@ locate the individual recipe the user wants to edit and pre-fill the form
 for the user. After the user has made the necessary changes they submit the form
 and MongoDB's update() method to update the recipe.
 
-#### Find Recipe
-
-Once a user selects a recipe from the home-page the MongoDB find() method uses
-the object ID to find the requested recipe. The user is then taken through 
-to the recipe's page where information from the database is presented in a 
-readable format to the user.
-
 #### Delete Recipe
 
 Each recipe has a 'Delete Recipe' button found at the bottom of the page. Once
 clicked it uses the remove() mongoDB method.
 
-#### Manage Cuisines
-
-Each recipe has a cuisine, and the user is able to add, edit or delete cuisines
-found on the website. This is an entirely different collection that has a
-relationship with the recipes collection.
-
-#### Filter Recipes
-
-This functionality allows a user to narrow down the recipes and tailor the
-filter to their personal preferences. The user is able to filter by cuisine,
-time to cook, cooking difficulty or sort the recipes by upvotes. This feature
-queries the database for each different parameter and returns a list only
-including the requested parameter. The sort by number of upvotes uses the 
-sort() method to sort by the upvotes field.
 
 ## Technologies Used
 
@@ -137,7 +112,7 @@ elements stay readable.
 
 ## Database Schema
 
-The database is structured with two collections, recipes and cuisines. The two
+The database is structured with two collections, recipes  The two
 collections are related as recipes contains a 'cuisine name' key that
 corresponds the cuisine documents.
 
@@ -154,7 +129,7 @@ An example of a recipe document can be found in static/images/doc_example.png
 To Clone the project from github:
 
 ```python
-$ git clone https://github.com/jstokes1994/online-cookbook.git
+$ git clone 
 ```
 
 I recommend deploying the project in a virtual envioronment:
@@ -183,7 +158,7 @@ The project was deployed to Heroku with config vars:
 - IP = 0.0.0.0
 - PORT = 5000
 
-https://online-cookbook-js.herokuapp.com/
+https:
 
 There are no differences between the development and deployed versions.
 
