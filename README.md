@@ -41,14 +41,30 @@ the bottom right of the home page allows users to navigate easily by way of a cl
 
 ## Features
 
+### home
+
+the home feature is intended to be a showcase of recipes visitors to the site will be able to to 
+click on and read about. It also offers users links to other functionalities of the site
+
+### Recipe
+
+It is intended that users read, add and make changes to recipes on display using this icon. it offers a 
+link to the data store.
+
+### Log in
+
+previous users of the website can assess their previous activities by loging in. Thereupon they can 
+proceed to contribute to the data in store.
+
 #### Add Recipe
 
-A user is able to fill out a form and add a recipe to the database and therefore
-the site using MongoDBs insert-one() function.
+Upon a successful log in, users can proceed to acess the Add Recipe functionality of the page by clicking 
+and keying in information they require.
 
-The upvotes section is not seen on the form, a JavaScript function is used to
-produce a number between 0-10000 and applied to the recipe. This is to show how
-the functionality would work with a live website.
+### Signup
+
+For new users of the site, the signup icon offers them the ability to sign up and offer their contribution 
+to the recipe store available.
 
 #### Edit Recipe
 
@@ -57,12 +73,6 @@ each entry into a collection with an object ID and this is what is used to
 locate the individual recipe the user wants to edit and pre-fill the form
 for the user. After the user has made the necessary changes they submit the form
 and MongoDB's update() method to update the recipe.
-
-#### Delete Recipe
-
-Each recipe has a 'Delete Recipe' button found at the bottom of the page. Once
-clicked it uses the remove() mongoDB method.
-
 
 ## Technologies Used
 
@@ -88,9 +98,6 @@ working
 sure the custom JavaScript validator is working
 - Ensure that the random number JS function for upvotes is being created when 
 adding new recipe.
-- Ensure the adding of new ingredients and steps rows through JavaScript is
-working and that they are creating the correct names within the documents 
-in MongoDB.
 - Making sure that the select fields are being populated with all of the 
 correct choices
 - Ensure that the removal of newly created rows for ingredients/preparation
@@ -107,18 +114,9 @@ an issue with clashing names when submitted
 occuring (such as fields going missing or name clashes causing issues)
 - Test that the select fields are producing the correct options.
 
-#### Other Tests
-
-- Make sure the 'delete recipe' functionality is removing the correct document.
-- Ensure that newly added cuisines become available on the add recipe form.
-- Make sure removing a cuisine that recipes have as their cuisine doesn't cause
-the website to crash.
-- Test responsiveness of each page on different screen sizes and ensure all
-elements stay readable.
-
 ## Database Schema
 
-The database is structured with two collections, recipes  The two
+The database is structured with 5 collections, recipes  The two
 collections are related as recipes contains a 'cuisine name' key that
 corresponds the cuisine documents.
 
@@ -131,38 +129,14 @@ An example of a recipe document can be found in static/images/doc_example.png
 
 
 ## Deployment
+This project was built using Python 3.8.6 and Flask 1.1.2.
+1. The project was deployed to Heroku with config vars:
+1. created requirements.txt that Heroku knows which packages are required for the application to run and install them.
+1. created Procfile that Heroku knows what kind of application this is.
+Heroku
+Free cloud hosting platform which simplify the deployment process.
 
-To Clone the project from github:
 
-```python
-$ git clone 
-```
-
-I recommend deploying the project in a virtual envioronment:
-
-```python
-$ cd directory-name
-$ python3 -m venv virtual-env-name
-```
-
-You will need to install the dependencies found in the requirements.txt file:
-
-```python
-$ pip3 install -r requirements.txt 
-```
-
-To run the project locally use:
-
-```python
-$ python3 run.py
-```
-
-You can also run the app through Heroku.
-
-The project was deployed to Heroku with config vars:
-
-- IP = 0.0.0.0
-- PORT = 5000
 
 https:
 
