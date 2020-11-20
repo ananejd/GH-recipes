@@ -138,3 +138,9 @@ This project was built using Python 3.8.6 and Flask 1.1.2.
 
 #### Challenges 
 Several chanllenges came up in the cause of building this project which are still being addressed.
+
+### project inspiration: 
+
+1. inspiration for this project were largely drawn from the code institute lecture on data centric development
+1. thanks to Alexander at the CI student care team for his support
+1. Im grateful to my mentor Omedale for his time.
