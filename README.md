@@ -6,6 +6,13 @@ create the application, using MongoDB as a data store, with a back-end functiona
 The project seeks to adopt the CRUD functionality in its setup, allowing a user to create, read,
 update and delete recipes.
 
+## Demo 
+<hr>
+Find a live version <a href="">here</a>
+
+![](assets/images/readme.jpg)
+
+
 ## UX Design
 
 My design was inspired by [the site builder report website](https://www.sitebuilderreport.com/inspiration/food-websites), 
